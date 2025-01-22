@@ -1,0 +1,25 @@
+.editor-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+textarea {
+  flex: 1;
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+}
+
+.preview-container {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
