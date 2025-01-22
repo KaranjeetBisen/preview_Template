@@ -34,10 +34,12 @@
             "styles": [
               "/home/admin/Desktop/Preview_Template/preview_Template/node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/@ckeditor/ckeditor5-build-classic/build/styles.css",
               "src/styles.scss"
             ],
             "scripts": [
-              "/home/admin/Desktop/Preview_Template/preview_Template/node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "/home/admin/Desktop/Preview_Template/preview_Template/node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "/home/admin/Desktop/Preview_Template/node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"
             ]
           },
           "configurations": {

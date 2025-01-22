@@ -40,3 +40,5 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+/home/admin/Desktop/Preview_Template/preview_Template/angular.json
+angular.json
