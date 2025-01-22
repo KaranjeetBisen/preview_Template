@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PreviewTabComponent } from './preview-tab.component';
+import { FileUploadComponent } from './file-upload.component';
 
-describe('PreviewTabComponent', () => {
-  let component: PreviewTabComponent;
-  let fixture: ComponentFixture<PreviewTabComponent>;
+describe('FileUploadComponent', () => {
+  let component: FileUploadComponent;
+  let fixture: ComponentFixture<FileUploadComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PreviewTabComponent]
+      imports: [FileUploadComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PreviewTabComponent);
+    fixture = TestBed.createComponent(FileUploadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

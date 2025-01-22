@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
-import { PreviewTabComponent } from '../preview-tab/preview-tab.component';
-import { Preview2Component } from '../preview2/preview2.component';
+import { PreviewTabComponent } from './components/preview-tab/preview-tab.component';
 
 export const routes: Routes = [
 
