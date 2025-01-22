@@ -1,25 +1,12 @@
-.editor-container {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
+button {
+  padding-inline: 10px; /* Horizontal padding */
+  margin: 3px; /* Spacing between buttons */
+  background-color: #f4f7fa; /* Default background color for buttons */
+  border-radius: 20px; /* Rounded corners for buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  text-align: center; /* Center-align text */
 }
 
-textarea {
-  flex: 1;
-  padding: 10px;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 14px;
-}
-
-.preview-container {
-  flex: 1;
-  border: 1px solid #ccc;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
+i {
+  color: #00bdf2; /* Default color for icons */
 }

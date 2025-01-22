@@ -1,15 +1,48 @@
-<div>
-  <h2>Upload HTML File</h2>
-  <input type="file" (change)="onFileSelected($event)" accept=".html">
-  <button (click)="uploadFile()">Upload File</button>
-  <button (click)="openEditor()" [disabled]="!selectedFile">HTML Editor</button>
-</div>
-
-<!-- HTML Editor Section -->
-<div *ngIf="isEditorOpen" class="editor-container">
-  <textarea [(ngModel)]="editorContent" rows="15" cols="60"></textarea>
-  <div class="preview-container">
-    <h3>Preview</h3>
-    <iframe [srcdoc]="editorContent" width="100%" height="500px"></iframe>
+<div class="container my-5">
+  <h1 class="text-center mb-4">Angular HTML File Editor</h1>
+  <div class="row">
+    <div class="col-lg-6 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <label for="fileInput" class="form-label fw-bold">Upload HTML File:</label>
+          <input type="file" id="fileInput" class="form-control" (change)="onFileUpload($event)" accept=".html">
+          <div class="d-flex gap-2 my-3">
+            <!-- Bold Button with Font Awesome Icon -->
+            <button  (click)="wrapText('<b>', '</b>')">
+              <i class="fas fa-bold"></i>
+            </button>
+            
+            <!-- Italic Button with Font Awesome Icon -->
+            <button  (click)="wrapText('<i>', '</i>')">
+              <i class="fas fa-info-circle nav-icon register-icon"></i>
+            </button>
+            
+            <!-- Unordered List Button with Font Awesome Icon -->
+            <button  (click)="wrapText('<ul><li>', '</li></ul>')">
+              <i class="fas fa-list-ul"></i>
+            </button>
+            
+            <!-- Ordered List Button with Font Awesome Icon -->
+            <button  (click)="wrapText('<ol><li>', '</li></ol>')">
+              <i class="fas fa-list-ol"></i>
+            </button>
+            
+            <!-- Download Button with Font Awesome Icon -->
+            <button style="width: 100px; height: 40px; background-color: black;"  (click)="downloadHtml()">
+              <i class="fas fa-download" style="color: white;"> buj</i>
+            </button>
+          </div>
+          <textarea id="editor" [(ngModel)]="htmlContent" (input)="updatePreview()" class="form-control" rows="10" placeholder="HTML content will be displayed here..."></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title">Preview</h2>
+          <iframe class="w-100 border" [srcdoc]="previewContent" style="height: 300px;"></iframe>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

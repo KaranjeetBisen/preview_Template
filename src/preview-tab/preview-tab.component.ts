@@ -1,54 +1,57 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import Quill from 'quill'; 
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-preview-tab',
+  standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './preview-tab.component.html',
-  styleUrl: './preview-tab.component.scss'
+  styleUrls: ['./preview-tab.component.scss']
 })
 export class PreviewTabComponent {
+  htmlContent: string = '';
+  previewContent: string = '';
 
-
-  selectedFile: File | null = null;
-  editorContent: string = ''; // The content of the HTML file in the editor
-  isEditorOpen: boolean = false; // To track whether the editor is open
-
-  // Handle file selection
-  onFileSelected(event: any): void {
-    this.selectedFile = event.target.files[0];
-    this.loadFileContent();
-  }
-
-  // Read and load file content into the editor
-  loadFileContent(): void {
-    if (this.selectedFile) {
+  onFileUpload(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
       const reader = new FileReader();
       reader.onload = (e: any) => {
-        this.editorContent = e.target.result; // Load file content into the editor
+        this.htmlContent = e.target.result;
+        this.updatePreview();
       };
-      reader.readAsText(this.selectedFile); // Read the HTML file as text
+      reader.readAsText(file);
     }
   }
 
-  // Upload the file (optional functionality)
-  uploadFile(): void {
-    if (this.selectedFile) {
-      const formData = new FormData();
-      formData.append('file', this.selectedFile, this.selectedFile.name);
-      console.log('File selected:', this.selectedFile);
-      // Example: Upload to backend server
-    } else {
-      alert('Please select a file first.');
-    }
+  wrapText(before: string, after: string): void {
+    const textarea: any = document.getElementById('editor');
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selectedText = this.htmlContent.substring(start, end);
+    const newText = before + selectedText + after;
+    this.htmlContent =
+      this.htmlContent.substring(0, start) +
+      newText +
+      this.htmlContent.substring(end);
+    this.updatePreview();
   }
 
-  // Open the HTML editor
-  openEditor(): void {
-    if (this.selectedFile) {
-      this.isEditorOpen = true; // Show the editor section
-    }
+  updatePreview(): void {
+    this.previewContent = this.htmlContent;
+  }
+
+  downloadHtml(): void {
+    const blob = new Blob([this.htmlContent], { type: 'text/html' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'edited_file.html';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
   }
 }
