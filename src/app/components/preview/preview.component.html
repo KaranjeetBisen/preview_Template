@@ -1,7 +1,4 @@
-<div class="card shadow-sm">
-    <div class="card-body">
-      <h2 class="card-title">Preview</h2>
-      <iframe class="w-100 border" [srcdoc]="content" style="height: 300px;"></iframe>
-    </div>
-  </div>
-  
+<div class="preview-container">
+  <h3>Live Preview:</h3>
+  <div class="preview" [innerHTML]="htmlContent"></div>
+</div>

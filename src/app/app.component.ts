@@ -10,5 +10,5 @@ import { PreviewComponent } from './components/preview/preview.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-
+  htmlContent: string = '';
 }

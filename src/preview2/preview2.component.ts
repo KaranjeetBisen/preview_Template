@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 @Component({
   selector: 'app-preview2',
-  imports: [CKEditorModule, FormsModule],
+  imports: [FormsModule],
   templateUrl: './preview2.component.html',
   styleUrl: './preview2.component.scss'
 })

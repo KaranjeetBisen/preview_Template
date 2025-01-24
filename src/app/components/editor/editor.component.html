@@ -1,4 +1,8 @@
 <div class="editor-container">
   <!-- Angular Editor -->
-  <angular-editor [(ngModel)]="htmlContent" [config]="config"></angular-editor>
+  <angular-editor 
+    [(ngModel)]="htmlContent" 
+    [config]="config"
+    (ngModelChange)="onContentChange()"
+  ></angular-editor>
 </div>

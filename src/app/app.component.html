@@ -2,10 +2,10 @@
     <h1 class="text-center mb-4">Angular HTML File Editor</h1>
     <div class="row">
       <div class="col-lg-6 mb-4">
-        <app-editor ></app-editor>
+          <app-editor (contentChange)="htmlContent = $event" ></app-editor>
       </div>
       <div class="col-lg-6">
-        <app-preview></app-preview>
+        <app-preview [htmlContent]="htmlContent"></app-preview>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, Output } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AngularEditorConfig, AngularEditorModule } from '@kolkov/angular-editor';
 
@@ -13,8 +13,8 @@ import { AngularEditorConfig, AngularEditorModule } from '@kolkov/angular-editor
 export class EditorComponent {
   // Content to be edited
   htmlContent: string = '';
-
-
+  @Output() contentChange: EventEmitter<string> = new EventEmitter<string>();
+  
   config: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
@@ -43,4 +43,8 @@ export class EditorComponent {
       },
     ]
   };
+
+  onContentChange() {
+    this.contentChange.emit(this.htmlContent);
+  }
 }
