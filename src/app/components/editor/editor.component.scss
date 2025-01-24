@@ -1,23 +1,33 @@
 .editor-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-  .editor {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    font-size: 1rem;
-    line-height: 1.5;
-    height: 300px;
-  }
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px 4px 0 0;
+}
 
-  h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #007bff;
-  }
+.editor-content {
+  flex-grow: 1;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0 0 4px 4px;
+  background-color: #ffffff;
+}
+
+button, label {
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+
+label {
+  cursor: pointer;
 }

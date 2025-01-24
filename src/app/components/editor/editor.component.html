@@ -1,10 +1,26 @@
-<div class="editor-container container mt-4 p-3 border rounded shadow-sm bg-light">
-  <h3 class="text-primary mb-3">Editor</h3>
-  <!-- Angular Editor -->
-  <angular-editor 
-    [(ngModel)]="htmlContent" 
-    [config]="config"
-    (ngModelChange)="onContentChange()"
-    class="editor"
-  ></angular-editor>
+<div class="editor-container">
+  <div class="toolbar">
+    <h5>Editor</h5>
+    <div class="d-flex align-items-center">
+       <!-- Upload File Button -->
+       <label class="btn btn-success btn-sm mb-0" for="uploadFile">
+        Upload File
+        <input 
+          type="file" 
+          id="uploadFile" 
+          (change)="onFileUpload($event)" 
+          accept=".html" 
+          hidden
+        />
+      </label>
+      <button class="btn btn-secondary btn-sm" (click)="clearEditor()">Clear</button>
+    </div>
+  </div>
+  <div class="editor-content">
+    <angular-editor 
+      [(ngModel)]="htmlContent" 
+      [config]="config"
+      (ngModelChange)="onContentChange()"
+    ></angular-editor>
+  </div>
 </div>

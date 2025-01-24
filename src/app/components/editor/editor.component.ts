@@ -47,4 +47,20 @@ export class EditorComponent {
   onContentChange() {
     this.contentChange.emit(this.htmlContent);
   }
+
+  clearEditor() {
+    this.htmlContent = '';
+  }
+
+  onFileUpload(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        this.htmlContent = e.target?.result as string;
+      };
+      reader.readAsText(file);
+    }
+  }
 }

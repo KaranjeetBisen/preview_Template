@@ -1,0 +1,25 @@
+.preview-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .preview-content {
+    flex-grow: 1;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0 0 4px 4px;
+    background-color: #ffffff;
+    overflow-y: auto;
+  }
+  

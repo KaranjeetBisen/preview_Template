@@ -1,11 +1,10 @@
-<div class="container my-5">
-    <h1 class="text-center mb-4">Angular HTML File Editor</h1>
-    <div class="row">
-      <div class="col-lg-6 mb-4">
-          <app-editor (contentChange)="htmlContent = $event" ></app-editor>
-      </div>
-      <div class="col-lg-6">
-        <app-preview [htmlContent]="htmlContent"></app-preview>
-      </div>
+<div class="container-fluid app-container">
+  <div class="row">
+    <div class="col-md-6 editor-panel">
+        <app-editor (contentChange)="htmlContent = $event" ></app-editor>
+    </div>
+    <div class="col-md-6 preview-panel">
+      <app-preview [htmlContent]="htmlContent"></app-preview>
     </div>
   </div>
+</div>
