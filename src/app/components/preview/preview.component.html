@@ -1,4 +1,14 @@
-<div class="preview-container">
-  <h3>Live Preview:</h3>
-  <div class="preview" [innerHTML]="htmlContent"></div>
+<div class="preview-container container mt-4 p-3 border rounded shadow-sm bg-light">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="text-primary">Live Preview</h3>
+    <button
+      class="btn btn-success btn-sm"
+      (click)="downloadHTML()"
+      title="Download the HTML content"
+    >
+      <i class="bi bi-download"></i> Download HTML
+    </button>
+  </div>
+
+  <div class="preview border p-3 rounded bg-white shadow-sm" [innerHTML]="htmlContent"></div>
 </div>

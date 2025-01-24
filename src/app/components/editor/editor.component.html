@@ -1,8 +1,10 @@
-<div class="editor-container">
+<div class="editor-container container mt-4 p-3 border rounded shadow-sm bg-light">
+  <h3 class="text-primary mb-3">Editor</h3>
   <!-- Angular Editor -->
   <angular-editor 
     [(ngModel)]="htmlContent" 
     [config]="config"
     (ngModelChange)="onContentChange()"
+    class="editor"
   ></angular-editor>
 </div>
