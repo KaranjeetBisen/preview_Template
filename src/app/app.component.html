@@ -2,11 +2,10 @@
     <h1 class="text-center mb-4">Angular HTML File Editor</h1>
     <div class="row">
       <div class="col-lg-6 mb-4">
-        <app-file-upload (fileUpload)="onFileUpload($event)"></app-file-upload>
-        <app-editor [htmlContent]="htmlContent" (update)="updatePreview($event)" (download)="downloadHtml()"></app-editor>
+        <app-editor ></app-editor>
       </div>
       <div class="col-lg-6">
-        <app-preview [content]="previewContent"></app-preview>
+        <app-preview></app-preview>
       </div>
     </div>
   </div>

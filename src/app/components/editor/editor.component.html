@@ -1,23 +1,4 @@
-<div class="card shadow-sm">
-    <div class="card-body">
-      <div class="d-flex gap-2 my-3">
-        <button (click)="wrapText('<b>', '</b>')">
-          <i class="fas fa-bold"></i>
-        </button>
-        <button (click)="wrapText('<i>', '</i>')">
-          <i class="fas fa-info-circle nav-icon register-icon"></i>
-        </button>
-        <button (click)="wrapText('<ul><li>', '</li></ul>')">
-          <i class="fas fa-list-ul"></i>
-        </button>
-        <button (click)="wrapText('<ol><li>', '</li></ol>')">
-          <i class="fas fa-list-ol"></i>
-        </button>
-        <button style="width: 100px; height: 40px; background-color: black;" (click)="download.emit()">
-          <i class="fas fa-download" style="color: white;"> Download</i>
-        </button>
-      </div>
-      <textarea id="editor" [(ngModel)]="htmlContent" (input)="onContentChange()" class="form-control" rows="10" placeholder="HTML content will be displayed here..."></textarea>
-    </div>
-  </div>
-  
+<div class="editor-container">
+  <!-- Angular Editor -->
+  <angular-editor [(ngModel)]="htmlContent" [config]="config"></angular-editor>
+</div>
