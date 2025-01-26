@@ -11,6 +11,6 @@ import { CommonModule } from '@angular/common';
 })
 export class UploadPreviewComponent {
   htmlContent: string = '';
-  isPreviewVisible: boolean = false; // Controls the visibility of the preview
+  isPreviewVisible: boolean = true; // Controls the visibility of the preview
 
 }
