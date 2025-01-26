@@ -1,33 +1,86 @@
-/* Container with fixed dimensions and border */
-.preview{
-  flex-grow: 1;
-  margin-top: 1rem;
-  padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 0 0 4px 4px;
-  background-color: #ffffff;
-  width: 400px;
+/* Container */
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 800px;
+  // margin:  auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: scroll;
+  background: #f9f9f9;
 }
 
-/* Header styling */
-h5 {
+/* Toolbar */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toolbar-title {
+  font-size: 1.25rem;
   margin: 0;
-  font-size: 18px;
-  text-align: center; /* Center the text */
-  border-bottom: 1px solid #000; /* Add a bottom border */
-  padding-bottom: 5px; /* Add spacing below the text */
 }
 
-button {
-  display: block; /* Align the button to take a new line */
-  margin: 10px auto; /* Center the button horizontally */
-  padding: 5px 10px;
-  font-size: 14px;
+/* Download Button */
+.btn-download {
+  background-color: white;
+  color: #007bff;
+  font-weight: bold;
+  border: 1px solid #007bff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+.btn-download:hover {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
 
-h6 {
-  margin: 0 0 10px 0;
-  font-size: 16px;
+/* Preview Content */
+.preview-content {
+  flex-grow: 1;
+  background-color: #ffffff;
+  border-top: 1px solid #e0e0e0;
+}
+
+.preview-heading {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.preview-box {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  // padding: 1rem;
+  background: #f8f8f8;
+  min-height: 200px;
+  overflow-y: auto;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+/* Add subtle scrolling effect */
+.preview-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.preview-box::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+.preview-box::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
 }
