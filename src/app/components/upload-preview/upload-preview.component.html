@@ -1,0 +1,12 @@
+<div class="container-fluid app-container">
+    <div class="row">
+      <div class="col-md-6 editor-panel">
+        <app-editor (contentChange)="htmlContent = $event"></app-editor>
+        <button class="btn btn-primary mt-3" (click)="togglePreview()">Toggle Preview</button>
+      </div>
+      <div class="col-md-6 preview-panel" *ngIf="showPreview">
+        <app-preview [htmlContent]="htmlContent"></app-preview>
+      </div>
+    </div>
+  </div>
+  

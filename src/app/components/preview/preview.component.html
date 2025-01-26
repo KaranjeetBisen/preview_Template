@@ -1,10 +1,14 @@
-<div class="preview-container">
-  <div class="toolbar">
-    <h5>Preview</h5>
-    <button class="btn btn-primary btn-sm" (click)="downloadHTML()">Download HTML</button>
+<div class="preview-container card shadow-lg border-0 mt-4">
+  <!-- Toolbar -->
+  <div class="card-header d-flex justify-content-between align-items-center bg-primary text-white">
+    <h5 class="mb-0">Preview</h5>
+    <button class="btn btn-light btn-sm" (click)="downloadHTML()">Download HTML</button>
   </div>
-  <div class="preview-content mt-3">
-    <h6 class="text-muted">Live Preview:</h6>
-    <div class="preview" [innerHTML]="htmlContent"></div>
+
+  <!-- Preview Content -->
+  <div class="card-body">
+    <h6 class="text-secondary">Live Preview:</h6>
+    <div class="preview border rounded p-3 bg-light" [innerHTML]="htmlContent"></div>
   </div>
 </div>
+
