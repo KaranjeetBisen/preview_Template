@@ -1,14 +1,9 @@
 <div class="editor-container">
   <div class="toolbar">
+    <h5>Editor</h5>
     <div class="d-flex align-items-center">
-      <!-- Display the file name -->
-      <span 
-      *ngIf="uploadedFileName" 
-      class="badge bg-info text-dark me-3 px-3 py-2">
-      {{ uploadedFileName }}
-    </span>      
       <!-- Upload File Button -->
-      <label class="btn btn-success btn-sm mb-0 d-flex align-items-center" for="uploadFile">
+      <label class="btn btn-success btn-sm mb-0" for="uploadFile">
         Upload File
         <input 
           type="file" 
@@ -18,22 +13,13 @@
           hidden 
         />
       </label>
-      
-      <!-- Toggle Editor Button -->
-      <button 
-        class="btn btn-primary btn-sm ms-3" 
-        (click)="toggleEditorVisibility()">
-        Toggle Editor
-      </button>
+      <button class="btn btn-secondary btn-sm" (click)="clearEditor()">Clear</button>
     </div>
   </div>
-
-  <!-- Conditional Rendering of Editor -->
-  <div *ngIf="isEditorVisible" class="editor-content">
+  <div class="editor-content">
     <angular-editor 
       [(ngModel)]="htmlContent" 
       [config]="config"
-      (ngModelChange)="onContentChange()"
     ></angular-editor>
   </div>
 </div>

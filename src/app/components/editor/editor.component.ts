@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Output } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, DoCheck, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AngularEditorConfig, AngularEditorModule } from '@kolkov/angular-editor';
 
@@ -8,35 +8,44 @@ import { AngularEditorConfig, AngularEditorModule } from '@kolkov/angular-editor
   selector: 'app-editor',
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.scss'],
-  imports:[AngularEditorModule, FormsModule, HttpClientModule, CommonModule],
+  imports:[AngularEditorModule, FormsModule, HttpClientModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class EditorComponent {
+export class EditorComponent implements DoCheck{
+
+  // Content to be edited
   htmlContent: string = '';
-  isEditorVisible: boolean = false; // Controls the visibility of the editor
-  uploadedFileName: string = ''; // To store the uploaded file name
   @Output() contentChange: EventEmitter<string> = new EventEmitter<string>();
-  @Output() togglePreviewVisibility: EventEmitter<void> = new EventEmitter<void>(); // New EventEmitter
 
   config: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
-    height: '15rem',
+    height: '37rem',
     minHeight: '5rem',
     placeholder: 'Enter text here...',
     translate: 'no',
     defaultParagraphSeparator: 'p',
     defaultFontName: 'Arial',
+    defaultFontSize: '14px',
     toolbarHiddenButtons: [['bold']],
-    customClasses: [
-      { name: 'quote', class: 'quote' },
-      { name: 'redText', class: 'redText' },
-      { name: 'titleText', class: 'titleText', tag: 'h1' },
-    ]
-  };
+    fonts: [
+      { class: 'arial', name: 'Arial' },
+      { class: 'times-new-roman', name: 'Times New Roman' },
+      { class: 'comic-sans-ms', name: 'Comic Sans MS' },
+    ],
+  };  
 
-  onContentChange() {
-    this.contentChange.emit(this.htmlContent);
+  onContentChange(): void {
+    const editorElement = document.querySelector('.angular-editor-textarea');
+    if (editorElement) {
+      const styledHtml = editorElement.innerHTML;
+      this.contentChange.emit(styledHtml);
+    }
+  }
+
+  ngDoCheck(): void {
+    // console.log(this.htmlContent);
+    this.onContentChange();
   }
 
   clearEditor() {
@@ -47,17 +56,12 @@ export class EditorComponent {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
-      this.uploadedFileName = file.name; // Store the file name
       const reader = new FileReader();
       reader.onload = (e) => {
         this.htmlContent = e.target?.result as string;
+        console.log("htmlcontent Updated with file content:"+this.htmlContent);
       };
       reader.readAsText(file);
     }
-  }
-
-  toggleEditorVisibility(): void {
-    this.isEditorVisible = !this.isEditorVisible; // Toggle editor visibility
-    this.togglePreviewVisibility.emit(); // Emit the event
   }
 }

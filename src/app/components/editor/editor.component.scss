@@ -9,6 +9,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
+  background-color: #007bff;
   color: white;
   border-radius: 4px 4px 0 0;
 }
@@ -22,11 +23,16 @@
   background-color: #ffffff;
 }
 
-button, label {
+button,
+label {
   margin-right: 0.5rem;
   white-space: nowrap;
 }
 
 label {
   cursor: pointer;
+}
+
+::ng-deep angular-editor .angular-editor-textarea {
+  text-align: left !important;
 }
