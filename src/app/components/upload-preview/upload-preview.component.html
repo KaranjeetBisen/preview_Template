@@ -1,12 +1,15 @@
 <div class="container-fluid app-container">
-    <div class="row">
-      <div class="col-md-6 editor-panel">
-        <app-editor (contentChange)="htmlContent = $event"></app-editor>
-        <button class="btn btn-primary mt-3" (click)="togglePreview()">Toggle Preview</button>
-      </div>
-      <div class="col-md-6 preview-panel" *ngIf="showPreview">
-        <app-preview [htmlContent]="htmlContent"></app-preview>
-      </div>
+  <div class="row">
+    <div class="col-md-6 editor-panel">
+      <!-- Listen to both contentChange and togglePreviewVisibility -->
+      <app-editor 
+        (contentChange)="htmlContent = $event" 
+        (togglePreviewVisibility)="isPreviewVisible = !isPreviewVisible">
+      </app-editor>
+    </div>
+    <div class="col-md-6 preview-panel " *ngIf="isPreviewVisible">
+      <!-- Conditional rendering of preview -->
+      <app-preview [htmlContent]="htmlContent"></app-preview>
     </div>
   </div>
-  
+</div>

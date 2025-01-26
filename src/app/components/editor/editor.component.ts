@@ -16,6 +16,7 @@ export class EditorComponent {
   isEditorVisible: boolean = false; // Controls the visibility of the editor
   uploadedFileName: string = ''; // To store the uploaded file name
   @Output() contentChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() togglePreviewVisibility: EventEmitter<void> = new EventEmitter<void>(); // New EventEmitter
 
   config: AngularEditorConfig = {
     editable: true,
@@ -57,5 +58,6 @@ export class EditorComponent {
 
   toggleEditorVisibility(): void {
     this.isEditorVisible = !this.isEditorVisible; // Toggle editor visibility
+    this.togglePreviewVisibility.emit(); // Emit the event
   }
 }
