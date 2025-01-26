@@ -37,12 +37,13 @@
               }
             ],
             "styles": [
-              "/home/admin/Desktop/Broadside/BroadsideUI/preview_Template/node_modules/bootstrap/dist/css/bootstrap.min.css",
-               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "/home/admin/Desktop/Preview_Template/preview_Template/node_modules/bootstrap/dist/css/bootstrap.min.css",
+               "/home/admin/Desktop/Preview_Template/preview_Template/node_modules/bootstrap-icons/font/bootstrap-icons.css",
+               "/home/admin/Desktop/Preview_Template/preview_Template/node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "src/styles.scss"
             ],
             "scripts": [
-              "/home/admin/Desktop/Broadside/BroadsideUI/preview_Template/node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "/home/admin/Desktop/Preview_Template/preview_Template/node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
